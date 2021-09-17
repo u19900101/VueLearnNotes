@@ -20,7 +20,7 @@ export default {
     console.log('Home组件被创建了')
     this.$router.push('/home/news')
   },
-  destoryed() {
+  destroyed() {
     console.log('Home组件被销毁了')
   },
   activated(){

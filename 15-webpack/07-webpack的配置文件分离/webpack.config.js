@@ -12,7 +12,7 @@ module.exports = {
   entry: './src/main.js',//入口文件
   output:{
     path: path.resolve(__dirname, 'dist'),//动态获取打包后的文件路径,path.resolve拼接路径
-    filename: 'bundle.js',//打包后的文件名
+    filename: 'bundle_bak.js',//打包后的文件名
     // publicPath: 'dist/'
   },
   module: {

@@ -10,6 +10,10 @@ export default {
   name: 'About',
   created() {
     document.title = '关于'
+    console.log('About created');
+  },
+  destroyed() {
+    console.log('About destroyed');
   }
 }
 </script>

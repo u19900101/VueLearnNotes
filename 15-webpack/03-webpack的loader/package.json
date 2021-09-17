@@ -1,5 +1,5 @@
 {
-  "name": "configofwebpack",
+  "name": "kkk",
   "version": "1.0.0",
   "description": "",
   "main": "inedx.js",
@@ -8,7 +8,6 @@
     "build": "webpack"
   },
   "author": "",
-  "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
@@ -22,3 +21,5 @@
     "webpack": "^3.6.0"
   }
 }
+
+

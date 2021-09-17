@@ -8,6 +8,24 @@ import Home from '@/components/Home'
 
 // 2. 通过Vue.use(插件)，安装插件
 Vue.use(Router)
+//解决 bug
+// Uncaught (in promise) Error: Navigation cancelled from "/home" to "/home/news" with a new navigation
+// 编程式路由往同一地址跳转时会报错的情况
+const originalPush = Router.prototype.push;
+const originalReplace = Router.prototype.replace;
+//push
+Router.prototype.push = function push(location, onResolve, onReject) {
+  if (onResolve || onReject)
+    return originalPush.call(this, location, onResolve, onReject);
+  return originalPush.call(this, location).catch(err => err);
+};
+//replace
+Router.prototype.replace = function push(location, onResolve, onReject) {
+  if (onResolve || onReject)
+    return originalReplace.call(this, location, onResolve, onReject);
+  return originalReplace.call(this, location).catch(err => err);
+};
+
 //3. 创建 router路由对象
 const routes = [
   {
@@ -25,7 +43,8 @@ const routes = [
     children: [
       // {
       //   path: '',
-      //   redirect: '/home/news'//缺省时候重定向到/home/news
+      //   // redirect: '/home/news'//缺省时候重定向到/home/news
+      //   redirect: 'news'//缺省时候重定向到/home/news
       // },
       {
         path: 'news',//子嵌套路由 无须加/
@@ -71,7 +90,7 @@ const routes = [
 const router = new Router({
   //配置路由和组件之间的应用关系
   routes,
-  mode: 'history',//修改模式为history
+  mode: 'history',//修改模式为history,默认为hash模式 有一个#
   linkActiveClass: 'active'
 })
 
@@ -89,7 +108,7 @@ router.beforeEach((to, from, next) => {
  * 后置钩子
  */
 router.afterEach((to, from) => {
-  console.log('后置钩子调用了----')
+  // console.log('后置钩子调用了----')
 })
 
 //4.导出router实例

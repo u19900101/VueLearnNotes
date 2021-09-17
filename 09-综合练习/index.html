@@ -11,16 +11,17 @@
 
 <body>
   <div id="app">
-    <table>
-      <thead>
+    <div v-if="books.length">
+      <table>
+        <thead>
         <th>&nbsp;</th>
         <th>书籍名称</th>
         <th>出版日期</th>
         <th>价格</th>
         <th>购买数量</th>
         <th>操作</th>
-      </thead>
-      <tbody>
+        </thead>
+        <tbody>
         <tr v-for="(book, index) in books" :key="index">
           <td>{{index}}</td>
           <td>{{book.name}}</td>
@@ -33,9 +34,14 @@
           </td>
           <td><button @click="remove">移除</button></td>
         </tr>
-      </tbody>
-    </table>
-    <h3>总价：{{totalPrice | showPrice}}</h3>
+        </tbody>
+      </table>
+      <h3>总价：{{totalPrice | showPrice}}</h3>
+    </div>
+    <div v-else>
+      <h1>购物车为空</h1>
+    </div>
+
 
 
   </div>

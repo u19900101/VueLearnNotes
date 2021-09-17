@@ -79,7 +79,7 @@ module.exports = {
     }
   },
   plugins:[
-    new webpack.BannerPlugin('最终解释权归zz所有'),
+    new webpack.BannerPlugin('最终解释权归kkkkkk所有'),
     new htmlWbepackPlugin({
       template: 'index.html'
     }),

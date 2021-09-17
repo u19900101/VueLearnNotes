@@ -449,60 +449,72 @@ module.exports = function (list, options) {
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_info_js__ = __webpack_require__(4);
+
+
+var _info = __webpack_require__(3);
+
+var _info2 = _interopRequireDefault(_info);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 //2.新建入口js文件main.js 导入mathUtil.js文件，并调用
-const {add,mul} = __webpack_require__(3)
+var _require = __webpack_require__(4),
+    add = _require.add,
+    mul = _require.mul;
 
-
-console.log(add(10,20))
-console.log(mul(10,10))
-
+console.log(add(10, 20));
+console.log(mul(10, 10));
 
 //3.使用es6语法导入
 
 
-console.log(__WEBPACK_IMPORTED_MODULE_0__js_info_js__["a" /* default */].name)
-console.log(__WEBPACK_IMPORTED_MODULE_0__js_info_js__["a" /* default */].age)
-
+console.log(_info2.default.name);
+console.log(_info2.default.age);
 
 //4.依赖css文件
-__webpack_require__(5)
+__webpack_require__(5);
 
 //5.依赖less文件
-__webpack_require__(9)
+__webpack_require__(9);
 
-document.writeln("hello,zzzz!")
-
+document.writeln("hello,zzzz!");
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-//1.新建mathUtils.js，用CommonJs规范导出
-function add(num1,num2) {
-  return num1+num2
-}
-function mul(num1,num2) {
-  return num1*num2
-}
-module.exports = {
-  add,mul
-}
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+//es6语法导出
+exports.default = {
+  name: 'zzz',
+  age: 24
+};
 
 /***/ }),
 /* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-//es6语法导出
-/* harmony default export */ __webpack_exports__["a"] = ({
-  name:'zzz',
-  age:24,
-});
+
+
+//1.新建mathUtils.js，用CommonJs规范导出
+function add(num1, num2) {
+  return num1 + num2;
+}
+function mul(num1, num2) {
+  return num1 * num2;
+}
+module.exports = {
+  add: add, mul: mul
+};
 
 /***/ }),
 /* 5 */
@@ -535,7 +547,7 @@ exports = module.exports = __webpack_require__(0)(false);
 var getUrl = __webpack_require__(7);
 var ___CSS_LOADER_URL___0___ = getUrl(__webpack_require__(8));
 // Module
-exports.push([module.i, "body{\r\n  /* background-color: red; */\r\n  /* background: url(\"../img/small.jpg\"); */\r\n  background: url(" + ___CSS_LOADER_URL___0___ + ");\r\n}", ""]);
+exports.push([module.i, "body{\n  /* background-color: red; */\n  /* background: url(\"../img/small.jpg\"); */\n  background: url(" + ___CSS_LOADER_URL___0___ + ");\n}", ""]);
 
 
 /***/ }),
@@ -572,7 +584,7 @@ module.exports = function (url, needQuotes) {
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "img/big.371beee1.jpg";
+module.exports = __webpack_require__.p + "img/big_371beee1.jpg";
 
 /***/ }),
 /* 9 */

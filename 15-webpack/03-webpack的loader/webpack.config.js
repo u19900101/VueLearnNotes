@@ -38,7 +38,7 @@ module.exports = {
             loader: 'url-loader',
             options: {
               limit: 8192,//图片小于8KB时候将图片转成base64字符串，大于8KB需要使用file-loader
-              name: 'img/[name].[hash:8].[ext]'//img表示文件父目录，[name]表示文件名,[hash:8]表示将hash截取8位[ext]表示后缀
+              name: 'img/[name]_[hash:8].[ext]'//img表示文件父目录，[name]表示文件名,[hash:8]表示将hash截取8位[ext]表示后缀
             }
           }
         ]

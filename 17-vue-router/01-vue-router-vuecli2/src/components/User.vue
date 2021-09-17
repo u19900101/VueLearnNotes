@@ -15,6 +15,12 @@ export default {
       return this.$route.params.userId
     }
   },
+  created() {
+    console.log('User created');
+  },
+  destroyed() {
+    console.log('User destroyed');
+  },
   methods: {
     btnClick() {
       //所有组件都继承自vue的原型

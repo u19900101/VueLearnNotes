@@ -115,17 +115,17 @@ console.log(mul(10,10))
 
 **2.使用webpack命令打包js文件**
 
-> 注意：webpack3使用`webpack ./src/main.js ./dist/bundle.js`
+> 注意：webpack3使用`webpack ./src/main.js ./dist/bundle_bak.js`
 >
-> webpack4，webpack打包在01-webpack的起步目录下打开终端 `webpack ./scr/main.js -o ./dist/bundle.js`
+> webpack4，webpack打包在01-webpack的起步目录下打开终端 `webpack ./scr/main.js -o ./dist/bundle_bak.js`
 
 我全局安装的是webpack@3.6.0，所以在根路径执行
 
 ![](./images/15-3.png)
 
-如图显示打包成功，查看dist文件夹下自动生成了一个`bundle.js`。
+如图显示打包成功，查看dist文件夹下自动生成了一个`bundle_bak.js`。
 
-> bundle.js
+> bundle_bak.js
 
 ```javascript
 //2.新建入口js文件main.js 导入mathUtil.js文件，并调用
@@ -165,9 +165,9 @@ module.exports = {
   <title>webpack入门</title>
 </head>
 <body>
-  <!-- 3.新建一个indexhtml文件并使用 webpack ./src/main.js ./dist/bundle.js webpack3使用此命令 -->
+  <!-- 3.新建一个indexhtml文件并使用 webpack ./src/main.js ./dist/bundle_bak.js webpack3使用此命令 -->
   <!-- 4.引用webpack打包后的js文件 -->
-  <script src="./dist/bundle.js"></script>
+  <script src="./dist/bundle_bak.js"></script>
 </body>
 </html>
 ```
@@ -198,7 +198,7 @@ console.log(info.name)
 console.log(info.age)
 ```
 
-> 再次使用`webpack ./src/main.js ./dist/bundle.js`，重新打包
+> 再次使用`webpack ./src/main.js ./dist/bundle_bak.js`，重新打包
 
 **5.打开index.html测试**
 
@@ -206,7 +206,7 @@ console.log(info.age)
 
 > 总结
 
-webpack可以帮我们打包js文件，只要指定入口文件（main.js）和输出的文件（bundle.js），不管是es6的模块化还是CommonJs的模块化，webpack都可以帮我们打包，还可以帮我们处理模块之间的依赖。
+webpack可以帮我们打包js文件，只要指定入口文件（main.js）和输出的文件（bundle_bak.js），不管是es6的模块化还是CommonJs的模块化，webpack都可以帮我们打包，还可以帮我们处理模块之间的依赖。
 
 ## 15.2	webpack的配置
 
@@ -229,7 +229,7 @@ module.exports = {
   entry: './src/main.js',//入口文件
   output:{
     path: path.resolve(__dirname, 'dist'),//动态获取打包后的文件路径,path.resolve拼接路径
-    filename: 'bundle.js'//打包后的文件名
+    filename: 'bundle_bak.js'//打包后的文件名
   }
 }
 ```
@@ -542,7 +542,7 @@ npm install --save-dev file-loader
 ```javascript
   output:{
     path: path.resolve(__dirname, 'dist'),//动态获取打包后的文件路径,path.resolve拼接路径
-    filename: 'bundle.js',//打包后的文件名
+    filename: 'bundle_bak.js',//打包后的文件名
     publicPath: 'dist/'
   },
 ```
@@ -606,6 +606,8 @@ npm install --save-dev babel-loader@7 babel-core babel-preset-es2015
 ## 15.4	webpack的vue
 
 ### 15.4.1	简单安装使用vue
+
+若安装报错  先删除 package-lock.json文件即可
 
 如果需要使用vue，必须使用npm先安装vue。
 
@@ -691,7 +693,7 @@ const app = new Vue({
 <body>
   <div id="app">
   </div>
-  <script src="./dist/bundle.js"></script>
+  <script src="./dist/bundle_bak.js"></script>
 </body>
 </html>
 ```
@@ -1107,7 +1109,7 @@ module.exports = {
   entry: './src/main.js',//入口文件
   output:{
     path: path.resolve(__dirname, 'dist'),//动态获取打包后的文件路径,path.resolve拼接路径
-    filename: 'bundle.js',//打包后的文件名
+    filename: 'bundle_bak.js',//打包后的文件名
     // publicPath: 'dist/'
   },
   module: {
@@ -1275,7 +1277,7 @@ module.exports = webpackMerge(baseConfig, {
   entry: './src/main.js',//入口文件
   output:{
     path: path.resolve(__dirname, 'dist'),//动态获取打包后的文件路径,path.resolve拼接路径
-    filename: 'bundle.js',//打包后的文件名
+    filename: 'bundle_bak.js',//打包后的文件名
     // publicPath: 'dist/'
   }
 ```
@@ -1287,7 +1289,7 @@ module.exports = webpackMerge(baseConfig, {
 ```javascript
 output:{
     path: path.resolve(__dirname, '../dist'),//动态获取打包后的文件路径,path.resolve拼接路径
-    filename: 'bundle.js',//打包后的文件名
+    filename: 'bundle_bak.js',//打包后的文件名
     // publicPath: 'dist/'
   }
 ```

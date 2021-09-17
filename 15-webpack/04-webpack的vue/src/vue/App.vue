@@ -10,7 +10,7 @@
 
 <script type="text/ecmascript-6">
 //导入Cpn组件
-import Cpn from './Cpn.vue'
+import Cpn from './Cpn'
 export default {
   name: "App",
   data() {

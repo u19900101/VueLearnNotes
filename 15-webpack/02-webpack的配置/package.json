@@ -1,14 +1,13 @@
 {
-  "name": "configofwebpack",
+  "name": "kkk",
   "version": "1.0.0",
   "description": "",
-  "main": "inedx.js",
+  "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "ppppp",
   "devDependencies": {
     "webpack": "^3.6.0"
   }

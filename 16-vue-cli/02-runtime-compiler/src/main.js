@@ -10,12 +10,12 @@ new Vue({
   el: '#app',
   // components: { App },
   // template: '<App/>'
-  //1.createElement('标签',{标签属性},[''])
+  // 1.createElement('标签',{标签属性},[''])
   render(createElement){
     // return createElement('h2',
     // {class:'box'},
     // ['hello vue', createElement('button',['按钮'])])
-    //2.传入组件
+    // 2.传入组件
     return createElement(App)
   }
 })

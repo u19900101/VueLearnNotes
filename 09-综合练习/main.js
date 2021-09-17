@@ -52,6 +52,7 @@ const app = new Vue({
         //   })
         // 3.高阶函数简写（箭头函数）
         return this.books.length === 0 ? 0 : this.books.map(book => book.price * book.count).reduce((preValue,currentVlue) => preValue + currentVlue)
+        // return this.books.length === 0 ? 0 : this.books.reduce((preValue,book) => preValue + book.price * book.count,0)
       }
   },
   methods: {
@@ -103,7 +104,7 @@ let newNum = newNums2.reduce(function (preValue,currentValue) {
  },0)
 //简写
 // let newNum = newNums2.reduce((preValue,currentValue) => preValue + currentValue)
-console.log(newNum);
+console.log("newNum",newNum);
 
 //三个需求综合
 let n = nums.filter(num => num > 50).map(num => num * 2).reduce((preValue,currentValue) => preValue + currentValue)
