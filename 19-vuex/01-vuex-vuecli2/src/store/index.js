@@ -5,6 +5,34 @@ import { UPDATEINFO } from './mutation-type'
 // 1.安装插件
 Vue.use(Vuex)
 
+// 创建模块
+const moduleA = {
+  state: {
+    name: 'zhangsan'
+  },
+  mutations: {
+    updateName (state, name) {
+      state.name = name
+    }
+  },
+  actions: {
+    // 异步操作
+    asyncUpdateName (context, name) {
+      let msg = '模块a中一部修改,响应成功'
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          context.commit('updateName', name)
+          resolve(msg)
+        }, 1000)
+      })
+    }
+  },
+  getters: {
+    fullName (state, getters, rootState) {
+      return state.name + rootState.count
+    }
+  }
+}
 // 2.创建对象
 const store = new Vuex.Store({
   state: { // 状态集合
@@ -34,6 +62,11 @@ const store = new Vuex.Store({
       state.students.push(stu) // 向数组中添加指定的stu
       console.log(state.students.find(s => s.id === stu.id)) // 输出打印查看state中是否有新增stu
     },
+    // updateInfo (state, age) {
+    //   // console.log(age)
+    //   // state.user['ageee'] = age
+    //   Vue.set(state.user, 'age', age)
+    // },
     [UPDATEINFO] (state, age) {
       // state.user.age = age
       Vue.set(state.user, 'age', 12)
@@ -44,9 +77,6 @@ const store = new Vuex.Store({
       //   state.user.name = 'lisi'
       // }, 1000)
       state.user.name = 'lisi'
-    },
-    updateName (state, name) {
-      state.user.name = name
     }
   },
   getters: {
@@ -55,10 +85,16 @@ const store = new Vuex.Store({
     },
     getStuById: state => id => {
       return state.students.find(s => s.id === id)
+    },
+    getStuByIdF (state) {
+      return function (id) {
+        return state.students.find(s => s.id === id)
+      }
     }
   },
   actions: {
     // context：上下文
+    // 异步操作
     aUpdateInfo (context, name) {
       let msg = '响应成功'
       return new Promise((resolve, reject) => {
@@ -68,8 +104,10 @@ const store = new Vuex.Store({
         }, 1000)
       })
     }
+  },
+  modules: {
+    a: moduleA
   }
-
 })
 
 // 3.导出store对象

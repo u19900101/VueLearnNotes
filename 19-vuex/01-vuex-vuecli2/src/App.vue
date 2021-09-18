@@ -1,5 +1,11 @@
 <template>
   <div id="app">
+    <h1>App 模块</h1>
+    <h3>{{$store.state.a.name}}</h3>
+    <button @click="updateName">修改信息</button>
+    <button @click="asyncUpdateName">子模块异步修改信息</button>
+    <h3>{{$store.getters.fullName}}</h3>
+
     <h3>{{ message }}</h3>
     <h3>{{ $store.state.count }}</h3>
     <button @click="add">+</button>
@@ -12,7 +18,8 @@
     <h3>异步修改的信息:{{ $store.state.user }}</h3>
     <button @click="aUpdateInfo()">异步修改信息</button>
     <h3>{{ stuCount }}</h3>
-    <h3>{{ stuById }}</h3>
+<!--    <h3>{{ stuById }}</h3>-->
+    <h3>{{ $store.getters.getStuByIdF(111) }}</h3>
     <hello-vuex />
   </div>
 </template>
@@ -62,8 +69,17 @@ export default {
       this.$store.commit(UPDATEINFO, 12)
     },
     aUpdateInfo () {
+      // this.$store.commit('updateInfo', 12)
       this.$store.dispatch('aUpdateInfo', 'lisi').then(response => {
         console.log(response)
+      })
+    },
+    updateName () {
+      this.$store.commit('updateName', 'memeda')
+    },
+    asyncUpdateName () {
+      this.$store.dispatch('asyncUpdateName', 'wangwu555').then(msg =>{
+        console.log(msg);
       })
     }
   }

@@ -55,16 +55,19 @@
       new Promise((resolve, reject) => {
         setTimeout(() => {//  请求A
           resolve('结果A')
-        }, 1000)
+        }, 2000)
       }),
       new Promise((resolve, reject) => {
-        setTimeout(() => {//  请求B
-          resolve('结果B')
-        }, 1000)
+        // setTimeout(() => {//  请求B
+        //   resolve('结果B')
+        // }, 1000)
+        reject("kkk")
       })
     ]).then(results => {
       console.log(results)
-    })
+    }).catch(res =>{
+      console.log(res);
+    });
 
   </script>
 </body>
