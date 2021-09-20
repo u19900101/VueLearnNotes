@@ -1,9 +1,11 @@
 <template>
   <div id="app" class="wrapper">
-<!--    <keep-alive exclude="Detail">-->
-<!--      <router-view/>-->
-<!--    </keep-alive>-->
-<!--    <main-tab-bar/>-->
+    <keep-alive exclude="Detail">
+      <router-view/>
+    </keep-alive>
+    <main-tab-bar/>
+<!--    <router-view/>-->
+<!--    <main-tab-bar></main-tab-bar>-->
   </div>
 </template>
 

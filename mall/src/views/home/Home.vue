@@ -91,7 +91,9 @@
     },
     mounted() {
       // 1.图片加载完成的事件监听
+      // 进行防抖操作
       const refresh = debounce(this.$refs.scroll.refresh, 50)
+      // 使用总线通信
       this.$bus.$on('itemImageLoad', () => {
         refresh()
       })
@@ -146,7 +148,7 @@
           this.goods[type].list.push(...res.data.list)
           this.goods[type].page += 1
 
-          // 完成上拉加载更多
+          // 完成上拉加载更多  用于二次加载
           this.$refs.scroll.finishPullUp()
         })
       }
@@ -185,6 +187,7 @@
 
   .tab-control {
     position: relative;
+    /*上滑时 tabbar固定*/
     z-index: 9;
   }
 

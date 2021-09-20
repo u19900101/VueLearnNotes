@@ -53,6 +53,7 @@
     },
     methods: {
       scrollTo(x, y, time=300) {
+        //解决延时加载的问题
         this.scroll && this.scroll.scrollTo(x, y, time)
       },
       refresh() {

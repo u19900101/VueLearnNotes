@@ -9,15 +9,15 @@ Vue.prototype.$bus = new Vue()
 
 new Vue({
   render: h => h(App),
-  // router
+  router
 }).$mount('#app')
 
-request({
-  url: '/home/multidata/mk'
-}).then(res => {
-  console.log("main.js 中获取到的数据 ",res);
-}).catch(err =>{
-  console.log(err);
-})
+// request({
+//   url: '/home/multidata/mk'
+// }).then(res => {
+//   console.log("main.js 中获取到的数据 ",res);
+// }).catch(err =>{
+//   console.log(err);
+// })
 
 
